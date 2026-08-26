@@ -1,0 +1,15 @@
+---
+layout: layout.njk
+title: Digital garden
+permalink: /
+---
+
+# Digital garden
+
+Published notes from plugged-in vaults.
+
+<nav class="vault-list" aria-label="Vaults">
+  {% for vault in vaults %}
+    <a href="/{{ vault.id }}/">{{ vault.title }}</a>
+  {% endfor %}
+</nav>

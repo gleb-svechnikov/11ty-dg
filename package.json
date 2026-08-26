@@ -1,0 +1,22 @@
+{
+  "name": "11ty-dg",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Eleventy publisher for one or more Obsidian vaults as a single digital garden.",
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-garden.js",
+    "build": "npm run sync && eleventy",
+    "start": "npm run sync && eleventy --serve --quiet"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "pagefind": "^1.5.2"
+  },
+  "dependencies": {
+    "mathjax": "4.1.0"
+  }
+}

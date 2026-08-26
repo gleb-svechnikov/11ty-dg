@@ -1,0 +1,5 @@
+- Adaptive design
+- Dark/Light theme
+- Intext search
+- LaTeX formulas support with MathJax
+- Tree/Graph views

@@ -1,0 +1,8 @@
+[submodule "vaults/ict"]
+	path = vaults/ict
+	url = git@gitlab.com:gleb-svechnikov/ICT.git
+	branch = main
+[submodule "vaults/ict-in-faces"]
+	path = vaults/ict-in-faces
+	url = git@gitlab.com:gleb-svechnikov/ict-in-faces.git
+	branch = gitbook

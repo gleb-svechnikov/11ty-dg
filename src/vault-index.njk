@@ -1,0 +1,76 @@
+---
+layout: layout.njk
+pagination:
+  data: vaults
+  size: 1
+  alias: vault
+permalink: "/{{ vault.id }}/"
+eleventyComputed:
+  title: "{{ vault.title }}"
+wide: true
+---
+
+{% set notes = collections.gardenNotes | notesInVault(vault.id) %}
+{% set graph = notes | vaultGraph %}
+
+# {{ vault.title }}
+
+<p class="lede">{{ notes.length }} published note{% if notes.length != 1 %}s{% endif %}.</p>
+
+<div class="view-switch" role="radiogroup" aria-label="Vault view">
+  <button type="button" role="radio" aria-checked="true" data-vault-view="list">Tree</button>
+  <button type="button" role="radio" aria-checked="false" data-vault-view="graph"{% if graph.nodes.length == 0 %} disabled{% endif %}>Graph</button>
+</div>
+
+{% if notes.length == 0 %}
+  <p class="muted">No notes with <code>garden: true</code> yet.</p>
+{% else %}
+  {% set tree = notes | notesTree %}
+  {% macro renderTree(nodes) %}
+    <ul class="note-tree">
+      {% for node in nodes %}
+        {% if node.type == "dir" %}
+          <li class="note-tree-dir">
+            <details open>
+              <summary>{{ node.name }}</summary>
+              {{ renderTree(node.children) }}
+            </details>
+          </li>
+        {% else %}
+          <li class="note-tree-file">
+            <a href="{{ node.url }}">{{ node.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endmacro %}
+  <div data-vault-panel="list">
+    {{ renderTree(tree) }}
+  </div>
+
+  {% if graph.nodes.length > 0 %}
+    <div class="vault-graph" data-vault-panel="graph" hidden>
+      <div class="graph-hud">
+        <p class="graph-status" id="graph-status"></p>
+        <label class="graph-search">
+          <span class="visually-hidden">Search notes</span>
+          <input id="graph-search" type="search" placeholder="Search notes" autocomplete="off" spellcheck="false">
+        </label>
+        <div class="graph-filters" id="graph-filters"></div>
+      </div>
+      <aside class="graph-inspector" id="graph-inspector" hidden>
+        <p class="graph-inspector-folder"></p>
+        <h2 class="graph-inspector-title"></h2>
+        <p class="graph-inspector-meta"></p>
+        <ul class="graph-inspector-links"></ul>
+        <a class="graph-inspector-open" href="">Open note</a>
+      </aside>
+      <p class="graph-hint">Scroll to zoom · drag to pan · click to inspect · double-click to open · double-click empty to fit</p>
+      <canvas id="vault-graph" width="960" height="640" aria-label="Vault graph explorer"></canvas>
+      <script type="application/json" id="vault-graph-data">{{ graph | toJson | safe }}</script>
+      <script src="/js/vault-graph.js"></script>
+    </div>
+  {% endif %}
+{% endif %}
+
+<script src="/js/vault-view.js"></script>

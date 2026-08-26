@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title or "Digital garden" }}</title>
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("garden-theme") || "auto";
+    </script>
+    <link rel="stylesheet" href="/css/garden.css">
+    <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+    <script src="/js/mathjax-config.js"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body{% if wide %} class="wide"{% endif %}>
+    <header class="site-header">
+      <a class="site-home" href="/">Digital garden</a>
+      <div class="site-header-actions">
+        <div id="search" class="site-search"></div>
+        <div class="theme-switch" role="radiogroup" aria-label="Color theme">
+          <button type="button" role="radio" aria-checked="true" data-theme-option="auto">Auto</button>
+          <button type="button" role="radio" aria-checked="false" data-theme-option="light">Light</button>
+          <button type="button" role="radio" aria-checked="false" data-theme-option="dark">Dark</button>
+        </div>
+      </div>
+    </header>
+    {% if coverUrl %}
+      <figure class="hero" data-pagefind-ignore>
+        <img src="{{ coverUrl }}" alt="" style="object-position: {{ coverPosition }}">
+      </figure>
+    {% endif %}
+    <main{% if gardenVault %} data-pagefind-body data-pagefind-meta="vault:{{ gardenVault }}" data-pagefind-filter="vault:{{ gardenVault }}"{% endif %}>
+      {{ content | safe }}
+    </main>
+    <script src="/js/theme.js"></script>
+    <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/js/search.js"></script>
+  </body>
+</html>
