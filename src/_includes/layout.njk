@@ -35,6 +35,11 @@
     {% endif %}
     <main{% if gardenVault %} data-pagefind-body data-pagefind-meta="vault:{{ gardenVault }}" data-pagefind-filter="vault:{{ gardenVault }}"{% endif %}>
       {{ content | safe }}
+      {% if gardenEditedAt %}
+        <footer class="article-meta" data-pagefind-ignore>
+          <p class="article-edited">Last edited <time datetime="{{ gardenEditedAt }}">{{ gardenEditedAt | formatDateTime }}</time></p>
+        </footer>
+      {% endif %}
     </main>
     <script src="/js/theme.js"></script>
     <script type="module" src="/js/mermaid.js"></script>

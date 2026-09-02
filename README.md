@@ -30,10 +30,10 @@ Wikilinks resolve inside the current vault first. Two notes with the same title 
 ## Commands
 
 ```sh
-npm install
-npm run sync   # copy garden: true notes from vaults/ into content/
-npm start      # sync, build, index with Pagefind, then local server
-npm run build  # sync, write _site/, then index with Pagefind
+bun install
+bun run sync   # copy garden: true notes from vaults/ into content/
+bun start      # sync, build, index with Pagefind, then local server
+bun run build  # sync, write _site/, then index with Pagefind
 ```
 
 Search is powered by [Pagefind](https://pagefind.app/). It indexes published notes after each Eleventy build. Set `SKIP_PAGEFIND=1` to skip indexing during fast local rebuilds.
@@ -62,7 +62,7 @@ git submodule update --remote vaults/ict
 ```sh
 git add vaults/ict vaults/ict-in-faces
 git commit -m "Update vault submodules"
-npm run sync
+bun run sync
 ```
 
 Do not edit notes in `vaults/` from this repo. Publish flags and content belong in the vault repos; this repo only pins which commit of each vault to publish.

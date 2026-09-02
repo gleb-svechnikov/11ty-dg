@@ -1,17 +1,68 @@
 /**
  * Site chrome lives in src/. Opted-in vault notes are copied into
- * content/<vault-id>/ by `npm run sync`.
+ * content/<vault-id>/ by `bun run sync`.
  *
  * Vault submodules in vaults/ are never an Eleventy input — unpublished
  * notes must not become pages.
  */
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import path from "node:path";
 import garden from "./garden.config.js";
 import { mapOutsideIgnored } from "./scripts/lib/html-regions.js";
 import { transformMermaidHtml } from "./scripts/lib/mermaid-html.js";
 import { buildVaultGraph, noteTitle } from "./scripts/lib/vault-graph.js";
+
+const vaultById = new Map(garden.vaults.map((vault) => [vault.id, vault]));
+const vaultEditDates = new Map();
+
+function buildVaultEditIndex(vaultPath) {
+  const map = new Map();
+  try {
+    const output = execFileSync(
+      "git",
+      ["-C", vaultPath, "log", "--format=%cI", "--name-only", "--", "."],
+      { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 },
+    );
+    let current = null;
+    for (const line of output.split("\n")) {
+      const trimmed = line.trim();
+      if (!trimmed) continue;
+      if (/^\d{4}-\d{2}-\d{2}T/.test(trimmed)) {
+        current = trimmed;
+        continue;
+      }
+      const rel = trimmed.replace(/\\/g, "/");
+      if (!map.has(rel)) map.set(rel, current);
+    }
+  } catch {
+    // Vault may be missing or not a git checkout during partial builds.
+  }
+  return map;
+}
+
+function noteLastEdited(inputPath) {
+  const vaultId = vaultIdFromInput(inputPath);
+  if (!vaultId) return null;
+  const rel = relFromInput(inputPath, vaultId);
+  const vault = vaultById.get(vaultId);
+  if (!vault) return null;
+
+  if (!vaultEditDates.has(vaultId)) {
+    vaultEditDates.set(vaultId, buildVaultEditIndex(vault.path));
+  }
+  const indexed = vaultEditDates.get(vaultId).get(rel);
+  if (indexed) return indexed;
+
+  const vaultFile = path.join(vault.path, rel);
+  if (existsSync(vaultFile)) {
+    return new Date(statSync(vaultFile).mtimeMs).toISOString();
+  }
+  if (existsSync(inputPath)) {
+    return new Date(statSync(inputPath).mtimeMs).toISOString();
+  }
+  return null;
+}
 
 function vaultIdFromInput(inputPath) {
   const match = inputPath.replace(/\\/g, "/").match(/\/content\/([^/]+)\//);
@@ -179,6 +230,11 @@ export default async function (eleventyConfig) {
     gardenVault(data) {
       return vaultIdFromInput(data.page?.inputPath ?? "");
     },
+    gardenEditedAt(data) {
+      const inputPath = data.page?.inputPath;
+      if (!inputPath || !inputPath.endsWith(".md")) return null;
+      return noteLastEdited(inputPath);
+    },
     coverUrl(data) {
       const cover = data.cover;
       if (!cover || typeof cover !== "string") return null;
@@ -292,6 +348,14 @@ export default async function (eleventyConfig) {
     JSON.stringify(value).replace(/</g, "\\u003c"),
   );
 
+  eleventyConfig.addFilter("formatDateTime", (iso) => {
+    if (!iso) return "";
+    return new Intl.DateTimeFormat(undefined, {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }).format(new Date(iso));
+  });
+
   eleventyConfig.addTransform("mermaid-diagrams", async function (content) {
     const inputPath = this.inputPath?.replace(/\\/g, "/") ?? "";
     if (!inputPath.endsWith(".md") || typeof content !== "string") {
@@ -308,7 +372,7 @@ export default async function (eleventyConfig) {
     if (process.env.SKIP_PAGEFIND === "1") return;
     const output = path.resolve("_site");
     if (!existsSync(output)) return;
-    execFileSync("npx", ["pagefind", "--site", output], {
+    execFileSync("bunx", ["pagefind", "--site", output], {
       stdio: "inherit",
     });
   });

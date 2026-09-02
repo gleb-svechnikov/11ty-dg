@@ -221,6 +221,19 @@ body.wide main {
   color: var(--muted);
 }
 
+.article-meta {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.article-edited {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 0.82rem;
+}
+
 .vault-list {
   display: flex;
   flex-direction: column;
