@@ -2,4 +2,5 @@
 - Dark/Light theme
 - Intext search
 - LaTeX formulas support with MathJax
+- Mermaid diagrams
 - Tree/Graph views

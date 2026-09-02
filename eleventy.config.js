@@ -9,6 +9,8 @@ import { existsSync, readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import path from "node:path";
 import garden from "./garden.config.js";
+import { mapOutsideIgnored } from "./scripts/lib/html-regions.js";
+import { transformMermaidHtml } from "./scripts/lib/mermaid-html.js";
 import { buildVaultGraph, noteTitle } from "./scripts/lib/vault-graph.js";
 
 function vaultIdFromInput(inputPath) {
@@ -33,34 +35,36 @@ function obsidianTransform(content, inputPath) {
   const vaultId = vaultIdFromInput(inputPath);
   if (!vaultId || !inputPath.endsWith(".md")) return content;
 
-  content = content.replace(/!\[\[(.*?)\]\]/g, (_, imagePath) => {
-    let actualImagePath = imagePath;
-    let altText = path.parse(imagePath).name;
-    if (imagePath.includes("|")) {
-      const parts = imagePath.split("|");
-      actualImagePath = parts[0];
-      altText = parts.slice(1).join("|");
-    }
-    const imageName = path.basename(actualImagePath.trim());
-    return `<img src="/${vaultId}/images/${encodeURI(imageName)}" alt="${escapeAttr(altText)}">`;
-  });
+  content = mapOutsideIgnored(content, (chunk) => {
+    chunk = chunk.replace(/!\[\[(.*?)\]\]/g, (_, imagePath) => {
+      let actualImagePath = imagePath;
+      let altText = path.parse(imagePath).name;
+      if (imagePath.includes("|")) {
+        const parts = imagePath.split("|");
+        actualImagePath = parts[0];
+        altText = parts.slice(1).join("|");
+      }
+      const imageName = path.basename(actualImagePath.trim());
+      return `<img src="/${vaultId}/images/${encodeURI(imageName)}" alt="${escapeAttr(altText)}">`;
+    });
 
-  content = content.replace(/\[\[(.*?)\]\]/g, (_, linkText) => {
-    let actualLink = linkText;
-    let displayText = linkText;
-    if (linkText.includes("|")) {
-      const parts = linkText.split("|");
-      actualLink = parts[0];
-      displayText = parts.slice(1).join("|");
-    }
-    if (actualLink.match(/^https?:\/\//) || actualLink.includes(".")) {
-      return `<a href="${escapeAttr(actualLink)}">${escapeAttr(displayText)}</a>`;
-    }
-    const slug = actualLink.trim().replace(/ /g, "%20");
-    if (displayText === linkText) {
-      displayText = path.basename(actualLink, path.extname(actualLink));
-    }
-    return `<a href="/${vaultId}/${slug}/">${escapeAttr(displayText)}</a>`;
+    return chunk.replace(/\[\[(.*?)\]\]/g, (_, linkText) => {
+      let actualLink = linkText;
+      let displayText = linkText;
+      if (linkText.includes("|")) {
+        const parts = linkText.split("|");
+        actualLink = parts[0];
+        displayText = parts.slice(1).join("|");
+      }
+      if (actualLink.match(/^https?:\/\//) || actualLink.includes(".")) {
+        return `<a href="${escapeAttr(actualLink)}">${escapeAttr(displayText)}</a>`;
+      }
+      const slug = actualLink.trim().replace(/ /g, "%20");
+      if (displayText === linkText) {
+        displayText = path.basename(actualLink, path.extname(actualLink));
+      }
+      return `<a href="/${vaultId}/${slug}/">${escapeAttr(displayText)}</a>`;
+    });
   });
 
   content = transformCallouts(content);
@@ -287,6 +291,14 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter("toJson", (value) =>
     JSON.stringify(value).replace(/</g, "\\u003c"),
   );
+
+  eleventyConfig.addTransform("mermaid-diagrams", async function (content) {
+    const inputPath = this.inputPath?.replace(/\\/g, "/") ?? "";
+    if (!inputPath.endsWith(".md") || typeof content !== "string") {
+      return content;
+    }
+    return transformMermaidHtml(content);
+  });
 
   eleventyConfig.addTransform("obsidian-wiki", function (content) {
     return obsidianTransform(content, this.inputPath?.replace(/\\/g, "/") ?? "");

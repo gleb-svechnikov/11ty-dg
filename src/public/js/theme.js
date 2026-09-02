@@ -15,6 +15,9 @@ function applyTheme(theme) {
       String(button.dataset.themeOption === theme),
     );
   }
+  document.documentElement.dispatchEvent(
+    new CustomEvent("garden-theme-change", { detail: { theme } }),
+  );
 }
 
 const initial = currentTheme();

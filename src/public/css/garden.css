@@ -590,6 +590,19 @@ main mjx-container[display="true"] {
   -webkit-overflow-scrolling: touch;
 }
 
+.garden-mermaid {
+  max-width: 100%;
+  margin: 1.25em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.garden-mermaid .garden-mermaid-svg svg {
+  max-width: 100%;
+  height: auto;
+}
+
 .callout {
   --callout-accent: var(--accent);
   margin: 1.35em 0;
