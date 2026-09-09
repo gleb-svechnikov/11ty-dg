@@ -37,4 +37,4 @@ deploy:
   script:
     - bun install --frozen-lockfile
     - bun run build
-    - bunx netlify-cli deploy --prod --dir=_site --message "gitlab ${CI_COMMIT_SHORT_SHA}"
+    - bunx netlify-cli deploy --prod --dir=_site --no-build --message "gitlab ${CI_COMMIT_SHORT_SHA}"
