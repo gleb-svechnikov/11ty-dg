@@ -11,3 +11,6 @@ node_modules/
 *.log
 .env
 .env.*
+
+# Netlify CLI local state (site ids, auth cache)
+.netlify/

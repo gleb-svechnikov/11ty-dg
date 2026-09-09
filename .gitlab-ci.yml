@@ -1,0 +1,40 @@
+# Build the garden on GitLab (private) and upload only `_site/` to Netlify.
+# Sync copies garden: true notes; unpublished vault files never leave CI as the publish dir.
+
+stages:
+  - deploy
+
+variables:
+  GIT_STRATEGY: clone
+  GIT_DEPTH: "0"
+  GIT_SUBMODULE_STRATEGY: normal
+  GIT_SUBMODULE_DEPTH: "0"
+  GIT_SUBMODULE_FORCE_HTTPS: "true"
+
+default:
+  image: oven/bun:1.4.0
+
+deploy:
+  stage: deploy
+  resource_group: production
+  interruptible: true
+  timeout: 20 minutes
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  cache:
+    key:
+      files:
+        - bun.lock
+    paths:
+      - node_modules/
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq git ca-certificates
+    - |
+      if [ -z "${NETLIFY_AUTH_TOKEN:-}" ] || [ -z "${NETLIFY_SITE_ID:-}" ]; then
+        echo "Set masked CI/CD variables NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID."
+        exit 1
+      fi
+  script:
+    - bun install --frozen-lockfile
+    - bun run build
+    - bunx netlify-cli deploy --prod --dir=_site --message "gitlab ${CI_COMMIT_SHORT_SHA}"

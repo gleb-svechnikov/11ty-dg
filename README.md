@@ -67,6 +67,22 @@ bun run sync
 
 Do not edit notes in `vaults/` from this repo. Publish flags and content belong in the vault repos; this repo only pins which commit of each vault to publish.
 
+## Deploy (GitLab CI → Netlify)
+
+The publisher GitLab project stays **private**. GitLab CI runs `bun run build`, then uploads only `_site/` to Netlify. Unpublished vault notes never go in the publish directory.
+
+GitLab remote: `git@gitlab.com:gleb-svechnikov/11-dg.git`
+
+### One-time GitLab setup
+
+1. Allow this project’s job token to clone the vaults (both projects: **Settings → CI/CD → Job token permissions**): add `gleb-svechnikov/11-dg` to the inbound allowlist on `ICT` and `ict-in-faces`.
+2. If shared runners are blocked, add a card in GitLab (verification only) or register your own runner.
+3. In **11-dg → Settings → CI/CD → Variables**, add masked variables:
+   - `NETLIFY_AUTH_TOKEN` — [Netlify personal access token](https://app.netlify.com/user/applications#personal-access-tokens) with site deploy access
+   - `NETLIFY_SITE_ID` — `d7313567-767e-4b48-8160-828497ad1611` (site [11-dg](https://app.netlify.com/projects/11-dg), https://11-dg.netlify.app)
+
+Pushing `main` runs the deploy job. Update submodule pointers in this repo when vault notes should go live, then push.
+
 ## Out of scope
 
 This is not an Obsidian clone in the browser. No Dataview. The garden should stay a readable, linked reflection of published notes.
