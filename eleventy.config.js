@@ -12,6 +12,7 @@ import garden from "./garden.config.js";
 import { mapOutsideIgnored } from "./scripts/lib/html-regions.js";
 import { transformMermaidHtml } from "./scripts/lib/mermaid-html.js";
 import { buildVaultGraph, noteTitle } from "./scripts/lib/vault-graph.js";
+import { wikiImageSrc } from "./scripts/lib/wiki-images.js";
 
 const vaultById = new Map(garden.vaults.map((vault) => [vault.id, vault]));
 const vaultEditDates = new Map();
@@ -95,8 +96,15 @@ function obsidianTransform(content, inputPath) {
         actualImagePath = parts[0];
         altText = parts.slice(1).join("|");
       }
-      const imageName = path.basename(actualImagePath.trim());
-      return `<img src="/${vaultId}/images/${encodeURI(imageName)}" alt="${escapeAttr(altText)}">`;
+      const noteRel = relFromInput(inputPath, vaultId);
+      const noteRelDir = path.posix.dirname(noteRel.replace(/\\/g, "/"));
+      const src = wikiImageSrc(
+        vaultId,
+        noteRelDir,
+        actualImagePath,
+        (rel) => existsSync(path.join("content", vaultId, rel)),
+      );
+      return `<img src="${src}" alt="${escapeAttr(altText)}">`;
     });
 
     return chunk.replace(/\[\[(.*?)\]\]/g, (_, linkText) => {

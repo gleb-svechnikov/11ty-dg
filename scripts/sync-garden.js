@@ -3,6 +3,7 @@ import { cp, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import config from "../garden.config.js";
+import { wikiAttachmentRels } from "./lib/wiki-images.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SKIP_DIRS = new Set([
@@ -58,7 +59,12 @@ function referencedFiles(notePath, text, notesRoot) {
   };
   for (const match of text.matchAll(/\[[^\]]*]\(([^)]+)\)/g)) add(match[1]);
   for (const match of text.matchAll(/^cover:\s*(.+)$/gm)) add(match[1]);
-  for (const match of text.matchAll(/!\[\[([^\]|#]+)/g)) add(match[1]);
+  const noteRelDir = path.relative(notesRoot, dir).replace(/\\/g, "/");
+  for (const match of text.matchAll(/!\[\[([^\]|#]+)/g)) {
+    for (const rel of wikiAttachmentRels(noteRelDir, match[1])) {
+      refs.add(path.normalize(path.join(notesRoot, rel)));
+    }
+  }
   return [...refs];
 }
 
