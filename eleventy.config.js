@@ -11,6 +11,7 @@ import path from "node:path";
 import garden from "./garden.config.js";
 import { mapOutsideIgnored } from "./scripts/lib/html-regions.js";
 import { transformMermaidHtml } from "./scripts/lib/mermaid-html.js";
+import { highlightCode } from "./scripts/lib/highlight.js";
 import { buildVaultGraph, noteTitle } from "./scripts/lib/vault-graph.js";
 import { wikiImageSrc } from "./scripts/lib/wiki-images.js";
 
@@ -204,6 +205,8 @@ export default async function (eleventyConfig) {
   ]) {
     eleventyConfig.ignores.add(pattern);
   }
+
+  eleventyConfig.amendLibrary("md", (md) => md.set({ highlight: highlightCode }));
 
   eleventyConfig.addWatchTarget("content/");
   eleventyConfig.addWatchTarget("src/public/");
