@@ -5,7 +5,12 @@ export function stripFrontmatter(markdown) {
 }
 
 export function noteTitle(markdown, filePath) {
-  const heading = stripFrontmatter(markdown).match(/^#\s+(.+)$/m);
+  // Drop fenced code first so `# comment` lines in code are not taken as an H1.
+  const prose = stripFrontmatter(markdown).replace(
+    /^ {0,3}(`{3,}|~{3,})[^\n]*\n[\s\S]*?(?:^ {0,3}\1[ \t]*$|(?![\s\S]))/gm,
+    "",
+  );
+  const heading = prose.match(/^#\s+(.+)$/m);
   if (heading) return heading[1].trim();
   return path.basename(filePath, path.extname(filePath)).replace(/_/g, " ");
 }
