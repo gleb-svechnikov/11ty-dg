@@ -588,6 +588,36 @@ main pre {
   line-height: 1.45;
 }
 
+main .code-block {
+  position: relative;
+  margin: 1.25em 0;
+}
+
+main .code-block pre {
+  margin: 0;
+  padding-right: 4.5rem;
+}
+
+main .code-copy {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  padding: 0.2rem 0.55rem;
+  font: inherit;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+main .code-copy:hover,
+main .code-copy:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 main :not(pre) > code {
   font-size: 0.88em;
   overflow-wrap: anywhere;
