@@ -197,9 +197,9 @@ export default async function (eleventyConfig) {
     "node_modules/**",
     "_site/**",
     "vaults/**",
-    "README.md",
-    "AGENTS.md",
-    "FEATURES.md",
+    // Repo-root markdown (README, AGENTS, drafts) and project docs are not notes.
+    "*.md",
+    "docs/**",
     "garden.config.js",
     "scripts/**",
   ]) {
