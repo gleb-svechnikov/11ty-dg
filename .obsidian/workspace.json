@@ -1,0 +1,240 @@
+{
+  "main": {
+    "id": "329f448859e731c8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4ae67432b80f132d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4edec7d72dcb099a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teacher's Knowledge Management Workflow.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Teacher's Knowledge Management Workflow"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "27fb11559e96d803",
+    "type": "split",
+    "children": [
+      {
+        "id": "d828f75d81c0e755",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8a8f57fb81678b1e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c49eef6891861ec5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "0db99a67d97845bb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "cae4c10cea4260e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "2d72b7538eca6058",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "480d40137b3e7d4e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Teacher's Knowledge Management Workflow.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "92068c25efe751ef",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Teacher's Knowledge Management Workflow.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "12335254f3b98940",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "7e4f3eb26719f301",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "5f64337c4cb5f8b7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Teacher's Knowledge Management Workflow.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "4edec7d72dcb099a",
+  "lastOpenFiles": [
+    "_site/pagefind/filter/en_7c6184c.pf_filter",
+    "_site/pagefind/pagefind.en_626bcda085.pf_meta",
+    "_site/pagefind/pagefind-modular-ui.js",
+    "_site/pagefind/pagefind-ui.css",
+    "_site/pagefind/pagefind-ui.js",
+    "_site/pagefind/pagefind-worker.js",
+    "_site/pagefind/wasm.unknown.pagefind",
+    "_site/pagefind/pagefind-highlight.js",
+    "_site/pagefind/fragment/en_2f8fa64.pf_fragment",
+    "_site/pagefind/fragment/en_da5e826.pf_fragment",
+    "_site/pagefind/fragment/en_c7ec402.pf_fragment",
+    "_site/ict-in-faces/people/ken-thompson-kenneth-lane-thompson.md",
+    "_site/ict-in-faces/people/Tony_Hoare.md",
+    "_site/ict-in-faces/people/Tim Berners-Lee.md",
+    "_site/ict-in-faces/people/Susan_Kare.md",
+    "_site/ict-in-faces/people/Sophie_Wilson.md",
+    "_site/ict-in-faces/people/Sherry_Turkle.md",
+    "_site/ict-in-faces/people/Shafi_Goldwasser.md",
+    "_site/ict-in-faces/people/Richard_Stallman.md",
+    "_site/ict-in-faces/people/Radia_Perlman.md",
+    "_site/ict-in-faces/people/Radhika_Nagpal.md",
+    "_site/ict-in-faces/people/README.md",
+    "_site/ict-in-faces/people/Poppy_Crum.md",
+    "_site/ict-in-faces/people/Noam_Chomsky.md",
+    "_site/ict-in-faces/people/Melvin_Conway.md",
+    "_site/ict-in-faces/people/Marshall_McLuhan.md",
+    "_site/ict-in-faces/people/Margaret_Walker.md",
+    "_site/ict-in-faces/people/Margaret_Hamilton.md",
+    "_site/ict-in-faces/people/Lynn_Conway.md",
+    "_site/ict-in-faces/people/Linus_Torvalds.md",
+    "_site/ict-in-faces/people/Limor_Fried.md",
+    "_site/ict-in-faces/people/Leslie_Lamport.md",
+    "_site/ict-in-faces/people/Ken_Thompson.md",
+    "_site/ict-in-faces/people/Karen_Spärck.md",
+    "_site/ict-in-faces/people/Judy_Malloy.md",
+    "_site/ict-in-faces/people/John_von_Neumann.md",
+    "_site/ict-in-faces/collages/walker.jpg",
+    "_site/ict-in-faces/collages/turkle.jpg",
+    "_site/ict-in-faces/collages/turing.jpg",
+    "_site/ict-in-faces/collages/torvalds.jpg",
+    "_site/ict-in-faces/collages/thompson.jpg",
+    "_site/ict-in-faces/collages/tanenbaum.jpg",
+    "_site/ict-in-faces/collages/swartz.jpg",
+    "_site/ict-in-faces/collages/stallman.jpg",
+    "_site/ict-in-faces/collages/spertus.jpg",
+    "_site/ict-in-faces/collages/shannon.jpg"
+  ]
+}
