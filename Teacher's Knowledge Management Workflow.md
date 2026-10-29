@@ -1,13 +1,21 @@
-# Teacher's Knowledge Management Workflow: From Classroom Notes to a Living Knowledge Base
+# From simple notes to a living Knowledge Base
 
 ## Abstract
 
-Most teachers already practise personal knowledge management (PKM), but without a system. Material piles up in slide decks, shared drives, exam-board folders and private notebooks. It is organised by the curriculum of the year, and it rarely gets better from one year to the next. This article describes a workflow that apply idea of digital garden, where knowledge thrive and grow over time.  
+Many teachers already practice personal knowledge management (PKM), but without a system. Material piles up in slide decks, shared drives, exam-board folders and private notebooks. It is organised by the curriculum of the year, and it rarely gets better from one year to the next. This article describes a workflow that apply idea of digital garden, where knowledge thrive and grow over time.  
 
-The loop runs from capture, to curriculum-neutral concept notes, to prerequisite links, to curriculum alignment, to lessons planned as paths through the concept graph, to teaching and reflection, and finally to selective publication as a public digital garden. Two ideas hold it together. First, **concepts come first and curricula second**, so one body of knowledge can serve several programmes at once. Second, **every stage of the loop leaves a trace in plain, versioned files**, so the knowledge base improves with every lesson taught and stays readable by people, scripts and AI agents. The workflow is presented as a set of stages and principles, not as a particular software stack. It ends with a proposed pilot study.
+The loop runs from capture, to curriculum-neutral concept notes, to prerequisite links, to curriculum alignment, to lessons planned as paths through the concept graph, to teaching and reflection, and finally to selective publication as a public digital garden. Two ideas hold it together. 
+First, **concepts come first and curricula second**, so one body of knowledge can serve several study programmes at once. 
+Second, **every stage of the loop leaves a trace in plain, versioned files**, so the knowledge base improves with every update and stays readable by people, scripts and AI agents.
+The files live on the teacher's own computer first (a **local-first** approach): the cloud is used for backup, sync and publishing, but never holds the only copy.
 
-*Companion articles: "From Teacher's Notes to a Professional Digital Garden" (publishing private notes as a professional learning network) and "Concepts First, Curricula Second: A Teacher's Knowledge Graph" (the data model). This article joins the two into a single working practice.*
+Despite me using Obsidian as reading and editing tool for notes, it is not limited. Any text editor able to read and edit notes, as well as AI agents can read and update notes.
+Paper notes  has to be digitised in order to become part of knowledge base.
+Recording can be used but need to be transcribed into digital text as well.
+Curriculums, syllabuses,  lesson plans can be compiled into web pages/ pdf for ease of sharing and printing, but framework deal with digital notes and 
 
+
+The workflow is presented as a set of stages and principles, not as a particular software stack. It ends with a proposed pilot study.
 ## 1. Why a workflow and not just a tool
 
 Teachers work with knowledge all the time: 
@@ -18,7 +26,7 @@ Teachers work with knowledge all the time:
 
 Most of it is lost, for three reasons.
 
-1. **It is stored by time/files, not by concepts.** 
+1. **It is stored by files, not by concepts.** 
 *Knowledge lives inside "Grade 9 – Term 2 – Week 4.pptx". To find it again you have to remember when teacher taught it, not what it was about.*
 2. **It is tied to one curriculum.** 
 *When the programme changes (a new exam board, a new national standard, a new school), the material is copied, partly rewritten, and drifts away from the original.*
@@ -31,16 +39,20 @@ Work on professional learning networks shows the value of sharing beyond the ins
 What these strands usually lack is a concrete, repeatable *practice* that a working teacher can keep up during a school year. 
 Simply installing a note-taking app does not supply that practice, but a workflow might help.
 
+Decades old concept of DIgital Garden comes 
+
+
 ## 2. Design principles
 
-The workflow is built on six principles.
+The workflow is built on seven principles.
 
 1. **Concepts first, curricula second.** The stable unit of knowledge is a single teachable idea. A curriculum is a selection and ordering of those ideas, mapped to external codes.
-2. **Atomic and linked.** One idea per note, with explicit links to the ideas it depends on. Value comes from the connections, not from the size of the collection [5].
+2. **Atomic and linked.** One idea/lesson per note, with explicit links to the concepts it depends on. Value comes from the connections, not from the note size of the collection [5].
 3. **Plain, open formats.** The knowledge base stays readable without the application that created it, and so does the AI agent's view of it.
 4. **Versioned and auditable.** Every change is recorded and can be undone. The history of how a concept explanation changed is itself professional evidence.
-5. **Private by default, public by choice.** Nothing is published unless it is explicitly marked for publication.
-6. **Repeatable.** The whole setup runs on any major consumer operating system with free, open-source software, so another can reproduce it on his//her computer with his/her OS, PKM tool,  mange it with AI or his/her choice.
+5. **Local first.** The knowledge base lives as ordinary files on the teacher's own device. It works offline, opens instantly, and does not depend on a school account, a vendor's servers or a subscription. Sync, backup and publishing are layered on top, but the local copy is the source of truth, and the teacher keeps it when they change school or tool [9].
+6. **Private by default, public by choice.** Nothing is published unless it is explicitly marked for publication.
+7. **Repeatable.** The whole setup runs on any major consumer operating system with free, open-source software, so another can reproduce it on his//her computer with his/her OS, PKM tool,  mange it with AI or his/her choice.
 
 ### **Markdown as the foundation.** 
 In order to follow principles above markdown with structured frontmatter suites it's best purpose.
@@ -60,14 +72,22 @@ Every note is a plain-text Markdown file with structured YAML frontmatter. The f
 
 ## 3. The workflow
 
-The workflow is a loop of seven stages.
-A single concept may pass through it many times over the years, and each pass leaves the knowledge base better than before.
+The workflow is built around one centre: the **garden** of concept notes and the links between them. 
+Everything else either feeds the garden, draws from it, or takes care of it.
+
+A single concept may pass through the loop many times over the years, and each pass leaves the garden better than before.
 
 ```mermaid
-flowchart LR
-    Capture --> Process --> Meta["Metadata & taxonomy"] --> Plan --> Reflect["Teach & Reflect"] --> Publish
-    Publish --> Review
-    Review --> Capture
+flowchart TB
+    Capture["📥 Capture<br/>3.1"] -- "process & connect<br/>3.2–3.3" --> Garden
+    Garden(("🌱 Garden<br/>concept notes<br/>+ links"))
+    Garden -- "plan · 3.4" --> Class["🏫 Teach & reflect<br/>3.5"]
+    Class -- "improve concepts" --> Garden
+    Garden -- "publish · 3.6" --> Web["🌐 Public<br/>digital garden"]
+    Garden --> Export/Print
+
+    classDef garden fill:#d8f3dc,stroke:#2d6a4f,stroke-width:3px,color:#1b4332
+    class Garden,Web garden
 ```
 
 ### 3.1 Capture: get it out of your head fast
@@ -79,23 +99,30 @@ Inputs come from everywhere:
 - a programme document,
 - a video, 
 - an idea on the way home. 
-The only rule at this stage is **low friction**. Material goes into a note as quick, rough notes, clippings or pasted images, without any attempt to organise it.
-Raw notes never get published.
+The only rule at this stage is **low friction**. 
+Material goes into a note as 
+- draft text notes, 
+- screenshots, 
+- audio notes
+without any inital attempt to organise it.
+
+> [!important] 
+>  raw notes never get published.
 
 ### 3.2 Process: turn notes into concepts
 
-Regularly notes revised and processes. 
+Regularly notes revised and processed. 
 Processing helps either merge note into an existing concept note or becomes a new concept. 
 A concept note:
 - explains **one** idea well enough to teach it,
 - does **not** mention a grade, term or exam board,
-- holds the explanation, history, examples, analogies and known misconceptions,
+- holds the explanation, history, examples, analogies or known misconceptions,
 - states **evidence of mastery**: observable things a student can do once they understand the idea.
 - has link to at least one existing concept
 At this stage is where most of the professional thinking happens. 
 Rewriting a textbook definition in your own words, for your own students, is a form of reflective practice: finding better illustration or diagrams or examples.
 
-*Output:* curriculum-neutral concept notes 
+
 
 ### 3.3 Metadata and taxonomy: connect concepts and align them to curricula
 
@@ -189,11 +216,12 @@ Open formats matter here. An agent that can read and edit Markdown files in a fo
 The workflow does not depend on any specific software. As one concrete example, the author's setup is:
 
 - **Writing and linking:** Obsidian, a Markdown editor with wikilinks, backlinks and templates. Any editor that handles Markdown folders would work.
-- **Versioning:** each knowledge base (for example one per subject) is a git repository.
+- **Storage:** the vaults are plain folders on the author's laptop, so writing, linking and searching work offline.
+- **Versioning and sync:** each knowledge base (for example one per subject) is a git repository. A remote (e.g. GitHub) serves as backup and sync between devices, not as the primary home of the notes.
 - **Publishing:** a small static-site build (Eleventy) that copies only notes flagged `garden: true`, resolves wikilinks, generates backlinks, renders math (MathJax), highlights code, and indexes the site for in-browser search (Pagefind). The output is hosted as static files.
 - **Rendering rules:** runtime-only plugin features (such as Dataview queries) are not published. What gets published is what is in the files.
 
-Every part of this list can be replaced. The workflow keeps working as long as the six principles in section 2 hold.
+Every part of this list can be replaced. The workflow keeps working as long as the seven principles in section 2 hold.
 
 ## 6. Proposed pilot study
 
@@ -220,6 +248,7 @@ The workflow has not yet been tested with a group of teachers. A mixed-methods l
 - **Granularity is subjective.** What counts as one concept differs between teachers, which makes it hard to merge graphs.
 - **Alignment is not learning.** A `standards:` tag shows that material addresses an objective, not that students reached it.
 - **Prerequisites are hypotheses.** Edges come from experience and should be checked against student outcomes.
+- **Local first means self-managed backup.** Without a cloud service doing it silently, the teacher must keep a backup or remote copy up to date; a lost laptop with no remote is a lost garden.
 - **Privacy discipline.** A single knowledge base holds both public concepts and private student-related notes. The publish filter must be strict and opt-in.
 - **Markdown is not mainstream among teachers.** Plain-text note-taking is still a minority practice, concentrated in technical and higher-education settings [8].
 
@@ -237,3 +266,4 @@ The goal is not a better note-taking app but a better practice. When knowledge i
 [6] S. Whittaker, "Personal Information Management: From Information Consumption to Curation," *Annual Review of Information Science and Technology*, vol. 45, 2011.
 [7] M. Bohuslavová, "Cultivating ideas: exploring digital gardening as a tool of personal information management in communities of practice," 2024. https://magdalenabohuslavova.wordpress.com/2024/08/27/cultivating-ideas-exploring-digital-gardening-as-a-tool-of-personal-information-management-in-communities-of-practice-mbib4250-1-essay/
 [8] "R Markdown as a dynamic interface for teaching: Modules from math and biology classrooms." https://pmc.ncbi.nlm.nih.gov/articles/PMC9487201/
+[9] M. Kleppmann, A. Wiggins, P. van Hardenberg, and M. McGranaghan, "Local-first software: You own your data, in spite of the cloud," in *Proc. ACM SIGPLAN Onward!*, 2019. https://www.inkandswitch.com/local-first/
