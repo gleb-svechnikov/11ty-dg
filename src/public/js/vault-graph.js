@@ -21,6 +21,7 @@ function themeColors() {
     muted: styles.getPropertyValue("--muted").trim() || "#5c6b64",
     accent: styles.getPropertyValue("--accent").trim() || "#2f6f4e",
     rule: styles.getPropertyValue("--rule").trim() || "#c5d0c8",
+    font: styles.getPropertyValue("--font").trim() || "monospace",
     dark,
     light: dark ? 58 : 38,
   };
@@ -342,7 +343,7 @@ function boot() {
       }
     }
     ctx.globalAlpha = 1;
-    ctx.font = `${12 / camera.scale}px system-ui, sans-serif`;
+    ctx.font = `${12 / camera.scale}px ${colors.font}`;
     for (const node of labels) {
       ctx.fillStyle = node === hover || node === selected ? colors.ink : colors.muted;
       ctx.fillText(node.title, node.x + 8 / camera.scale, node.y + 4 / camera.scale);
