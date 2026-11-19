@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4ae67432b80f132d",
+        "id": "cabb37b6fa977b7a",
         "type": "tabs",
         "children": [
           {
-            "id": "4edec7d72dcb099a",
+            "id": "d5c8cdd90a795a0f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "Teacher's Knowledge Management Workflow.md",
-                "mode": "source",
-                "source": false
+                "aFile": "Sources/01-zendot-marble-taxonomy.html",
+                "bFile": "Sources/01-zendot-marble-taxonomy.html",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "Teacher's Knowledge Management Workflow"
+              "icon": "diff",
+              "title": "Diff: 01-zendot-marble-taxonomy.html  (Working Tree)"
             }
           }
         ]
@@ -169,13 +169,23 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "c027e12a25285962",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 515.296875
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,56 +195,58 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4edec7d72dcb099a",
+  "active": "d5c8cdd90a795a0f",
   "lastOpenFiles": [
-    "_site/pagefind/filter/en_7c6184c.pf_filter",
-    "_site/pagefind/pagefind.en_626bcda085.pf_meta",
-    "_site/pagefind/pagefind-modular-ui.js",
-    "_site/pagefind/pagefind-ui.css",
-    "_site/pagefind/pagefind-ui.js",
-    "_site/pagefind/pagefind-worker.js",
-    "_site/pagefind/wasm.unknown.pagefind",
-    "_site/pagefind/pagefind-highlight.js",
-    "_site/pagefind/fragment/en_2f8fa64.pf_fragment",
-    "_site/pagefind/fragment/en_da5e826.pf_fragment",
-    "_site/pagefind/fragment/en_c7ec402.pf_fragment",
-    "_site/ict-in-faces/people/ken-thompson-kenneth-lane-thompson.md",
-    "_site/ict-in-faces/people/Tony_Hoare.md",
-    "_site/ict-in-faces/people/Tim Berners-Lee.md",
-    "_site/ict-in-faces/people/Susan_Kare.md",
-    "_site/ict-in-faces/people/Sophie_Wilson.md",
-    "_site/ict-in-faces/people/Sherry_Turkle.md",
-    "_site/ict-in-faces/people/Shafi_Goldwasser.md",
-    "_site/ict-in-faces/people/Richard_Stallman.md",
-    "_site/ict-in-faces/people/Radia_Perlman.md",
-    "_site/ict-in-faces/people/Radhika_Nagpal.md",
-    "_site/ict-in-faces/people/README.md",
-    "_site/ict-in-faces/people/Poppy_Crum.md",
-    "_site/ict-in-faces/people/Noam_Chomsky.md",
-    "_site/ict-in-faces/people/Melvin_Conway.md",
-    "_site/ict-in-faces/people/Marshall_McLuhan.md",
-    "_site/ict-in-faces/people/Margaret_Walker.md",
-    "_site/ict-in-faces/people/Margaret_Hamilton.md",
-    "_site/ict-in-faces/people/Lynn_Conway.md",
-    "_site/ict-in-faces/people/Linus_Torvalds.md",
-    "_site/ict-in-faces/people/Limor_Fried.md",
-    "_site/ict-in-faces/people/Leslie_Lamport.md",
-    "_site/ict-in-faces/people/Ken_Thompson.md",
-    "_site/ict-in-faces/people/Karen_Spärck.md",
-    "_site/ict-in-faces/people/Judy_Malloy.md",
-    "_site/ict-in-faces/people/John_von_Neumann.md",
-    "_site/ict-in-faces/collages/walker.jpg",
-    "_site/ict-in-faces/collages/turkle.jpg",
-    "_site/ict-in-faces/collages/turing.jpg",
-    "_site/ict-in-faces/collages/torvalds.jpg",
-    "_site/ict-in-faces/collages/thompson.jpg",
-    "_site/ict-in-faces/collages/tanenbaum.jpg",
-    "_site/ict-in-faces/collages/swartz.jpg",
-    "_site/ict-in-faces/collages/stallman.jpg",
-    "_site/ict-in-faces/collages/spertus.jpg",
-    "_site/ict-in-faces/collages/shannon.jpg"
+    "A Teacher's Knowledge Graph.md",
+    "FEATURES.md",
+    "AGENTS.md",
+    "Untitled.base",
+    "paper/teachers-knowledge-workflow-v1.pdf",
+    "Where to Publish.md",
+    "souces.md",
+    "Teacher's Knowledge Management Workflow.md",
+    "paper/build/paper.pdf",
+    "paper/build/page1.png",
+    "paper/build/f.pdf",
+    "Sources/isprs-archives-XLVIII-4-W7-2023-25-2023.pdf",
+    "Sources/10.1016@j.heliyon.2021.e08607 (1).pdf",
+    "Sources/chen2018.pdf",
+    "Sources/10.1016@j.heliyon.2021.e08607.pdf",
+    "Sources/hwang2011.pdf",
+    "Sources/elgendi2020.pdf",
+    "From Teacher's Notes to a Professional Digital Garden.md",
+    "content/ict/PLT/Graphviz/Mermaid.md",
+    "content/ict/PLT/Graphviz/DOT Language.md",
+    "content/ict/images/3d_sec_pentagon.png",
+    "content/ict/images/3d_views_front.png",
+    "content/ict/images/svg_styles_group.svg",
+    "content/ict/Software/cal.md",
+    "content/ict/images/tensor.svg",
+    "content/ict/images/svg_styles_ways.svg",
+    "content/ict/images/svg_styles_currentcolor.svg",
+    "content/ict/images/3d_sec_rectangle.png",
+    "content/ict/images/3d_cross3_top.png",
+    "content/ict/images/3d_plug_front.png",
+    "_site/ict/Concepts/dataset.md",
+    "_site/ict/Algorithms/tf–idf.md",
+    "_site/ict/Algorithms/BM25.md",
+    "_site/ict/Puzzles/Combinatorics/Socks in the dark.md",
+    "_site/ict/Puzzles/Combinatorics/Round table.md",
+    "_site/ict/Puzzles/Combinatorics/Podium.md",
+    "_site/ict/Puzzles/Combinatorics/Pizza toppings.md",
+    "_site/ict/Puzzles/Combinatorics/PIN codes.md",
+    "_site/ict/Puzzles/Combinatorics/Outfits.md",
+    "_site/ict/Puzzles/Combinatorics/Handshakes.md",
+    "_site/ict/Puzzles/Combinatorics/Anagrams.md",
+    "content/ict/Puzzles/3D puzzles.md",
+    "content/ict/Puzzles/Combinatorics puzzles.md",
+    "content/ict/Puzzles/Combinatorics/Socks in the dark.md",
+    "content/ict/Puzzles/Combinatorics/Round table.md",
+    "content/ict/Puzzles/Combinatorics/Podium.md",
+    "vaults/ict/Untitled.canvas"
   ]
 }

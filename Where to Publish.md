@@ -4,11 +4,11 @@
 
 ## The articles and their best fit
 
-| Article | What it is | Best kind of venue |
-| --- | --- | --- |
-| **Teacher's Knowledge Management Workflow** | A practitioner workflow (capture → distil → connect → align → plan → reflect → publish) | Practitioner magazines, experience-report tracks, teacher conferences |
-| **Concepts First, Curricula Second: A Teacher's Knowledge Graph** | A conceptual model; compared with Marble's os-taxonomy | Computing-education conferences, education journals (position or theory paper) |
-| **From Teacher's Notes to a Professional Digital Garden** | Digital garden publishing and PLN, plus a study protocol | Preprint now; a full paper once pilot data exists |
+| Article                                                           | What it is                                                                              | Best kind of venue                                                             |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Teacher's Knowledge Management Workflow**                       | A practitioner workflow (capture → distil → connect → align → plan → reflect → publish) | Practitioner magazines, experience-report tracks, teacher conferences          |
+| **Concepts First, Curricula Second: A Teacher's Knowledge Graph** | A conceptual model; compared with Marble's os-taxonomy                                  | Computing-education conferences, education journals (position or theory paper) |
+| **From Teacher's Notes to a Professional Digital Garden**         | Digital garden publishing and PLN, plus a study protocol                                | Preprint now; a full paper once pilot data exists                              |
 
 None of the three contains empirical results yet. Peer-reviewed research tracks will expect data, so the realistic first targets are **practitioner venues, experience reports, posters and preprints**. Section 4 of the workflow article (the pilot study) is the route to a later journal paper.
 
@@ -22,14 +22,14 @@ None of the three contains empirical results yet. Peer-reviewed research tracks 
 
 ## 2. Computing-education conferences
 
-| Venue | Format | Timing | Fit |
-| --- | --- | --- | --- |
-| **CSTA Annual Conference 2027** (Computer Science Teachers Association) | Session proposal: workshop or talk | The 2027 proposal call is closing now. Proposal office hours ran until 21 Oct 2026, and past cycles closed in late October (exact 2027 deadline unconfirmed) | Workflow, run as a hands-on session |
-| **Computing Education Practice (CEP)**, Durham, UK | Short papers (up to 4 pages) and posters | CEP 2027 takes place 7 Jan 2027, and its deadline was probably in Sept 2026. **Aim for CEP 2028** (deadline likely Sept 2027, unconfirmed) | Workflow or Knowledge Graph as a practice paper |
-| **SIGCSE TS 2027** (ACM), Sacramento, 17–20 Feb 2027 | Experience Reports & Tools track, 6 pages + 1 page of references, anonymised, abstract due about a week before the paper | The 2027 deadline has most likely passed. **Aim for SIGCSE TS 2028** | Knowledge Graph as an experience report; the track asks for enough detail that other educators can adopt the work |
-| **ITiCSE** (ACM, Europe) | Papers, posters, working groups | 2026 deadlines were in mid-January. ITiCSE 2027 likely follows (unconfirmed) | Poster or short paper on the Knowledge Graph |
-| **WiPSCE** (Workshop in Primary and Secondary Computing Education) | Full, practical and short papers; posters | Earlier editions had deadlines from late April to June. 2027 not announced yet | **Strong fit:** school-level computing and teacher practice, published in the ACM Digital Library |
-| **Koli Calling** (Finland) | Research, practice and systems papers | 2026 deadline was 19 July 2026. 2027 likely mid-July (unconfirmed) | Knowledge Graph as a practice/systems paper |
+| Venue                                                                   | Format                                                                                                                   | Timing                                                                                                                                                       | Fit                                                                                                               |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **CSTA Annual Conference 2027** (Computer Science Teachers Association) | Session proposal: workshop or talk                                                                                       | The 2027 proposal call is closing now. Proposal office hours ran until 21 Oct 2026, and past cycles closed in late October (exact 2027 deadline unconfirmed) | Workflow, run as a hands-on session                                                                               |
+| **Computing Education Practice (CEP)**, Durham, UK                      | Short papers (up to 4 pages) and posters                                                                                 | CEP 2027 takes place 7 Jan 2027, and its deadline was probably in Sept 2026. **Aim for CEP 2028** (deadline likely Sept 2027, unconfirmed)                   | Workflow or Knowledge Graph as a practice paper                                                                   |
+| **SIGCSE TS 2027** (ACM), Sacramento, 17–20 Feb 2027                    | Experience Reports & Tools track, 6 pages + 1 page of references, anonymised, abstract due about a week before the paper | The 2027 deadline has most likely passed. **Aim for SIGCSE TS 2028**                                                                                         | Knowledge Graph as an experience report; the track asks for enough detail that other educators can adopt the work |
+| **ITiCSE** (ACM, Europe)                                                | Papers, posters, working groups                                                                                          | 2026 deadlines were in mid-January. ITiCSE 2027 likely follows (unconfirmed)                                                                                 | Poster or short paper on the Knowledge Graph                                                                      |
+| **WiPSCE** (Workshop in Primary and Secondary Computing Education)      | Full, practical and short papers; posters                                                                                | Earlier editions had deadlines from late April to June. 2027 not announced yet                                                                               | **Strong fit:** school-level computing and teacher practice, published in the ACM Digital Library                 |
+| **Koli Calling** (Finland)                                              | Research, practice and systems papers                                                                                    | 2026 deadline was 19 July 2026. 2027 likely mid-July (unconfirmed)                                                                                           | Knowledge Graph as a practice/systems paper                                                                       |
 
 ## 3. Journals
 

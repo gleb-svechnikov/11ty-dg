@@ -1,0 +1,26 @@
+% TikZ version of the Mermaid workflow diagram in section 3.
+% Keep in sync with the ```mermaid block in the note.
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw=black!55, rounded corners=3pt, fill=white, align=center,
+              inner sep=6pt, minimum height=1.05cm, minimum width=2.6cm, line width=0.6pt},
+  arr/.style={-{Stealth[length=2.6mm]}, line width=0.7pt, draw=black!65},
+  lab/.style={font=\footnotesize\itshape, fill=white, inner sep=1.5pt, align=center},
+]
+  \node[circle, draw=gardenstroke, fill=gardenfill, text=gardentext, line width=1.6pt,
+        align=center, minimum size=2.7cm] (garden)
+        {\textbf{Knowledge}\\[1pt]\textbf{Base}};
+  \node[box] (capture) at (-5.4, 0) {\textbf{Capture}\\\footnotesize 3.1};
+  \node[box] (class)   at ( 5.4, 0) {\textbf{Teach \& Reflect}\\\footnotesize 3.5};
+  \node[box, draw=webstroke, fill=webfill, text=webtext, line width=1.2pt] (web)
+        at (-2.6, -3.0) {\textbf{Public digital garden}\\\footnotesize 3.7.1};
+  \node[box, draw=exportstroke, fill=exportfill, text=exporttext, line width=0.9pt] (print)
+        at ( 2.6, -3.0) {Print materials\\\footnotesize 3.8.1};
+
+  \draw[arr] (capture.15)  to[bend left=14]  node[lab, above] {3.2 process} (garden.160);
+  \draw[arr] (capture.-15) to[bend right=14] node[lab, below] {3.3 connect} (garden.200);
+  \draw[arr] (garden.20)  to[bend left=18]  node[lab, above] {3.4 plan}    (class.160);
+  \draw[arr] (class.200)  to[bend left=18]  node[lab, below] {3.6 improve} (garden.-20);
+  \draw[arr] (garden.-125) -- node[lab, left=2pt]  {3.7 share}  (web.north);
+  \draw[arr] (garden.-55)  -- node[lab, right=2pt] {3.8 export} (print.north);
+\end{tikzpicture}

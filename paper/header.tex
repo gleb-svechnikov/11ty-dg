@@ -1,0 +1,59 @@
+% Preamble additions for the two-column paper build.
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc}
+\usepackage{listings}
+\usepackage{booktabs,tabularx,array}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+
+\setlength{\columnsep}{0.7cm}
+\raggedbottom
+
+% Colours (match the Mermaid classDefs in the note)
+\definecolor{gardenfill}{HTML}{D3F9D8}\definecolor{gardenstroke}{HTML}{2B8A3E}\definecolor{gardentext}{HTML}{0B3D17}
+\definecolor{webfill}{HTML}{D0EBFF}\definecolor{webstroke}{HTML}{1C5D99}\definecolor{webtext}{HTML}{0B3060}
+\definecolor{exportfill}{HTML}{FFF3BF}\definecolor{exportstroke}{HTML}{B08800}\definecolor{exporttext}{HTML}{5C4400}
+\definecolor{c-important}{HTML}{B35C00}
+\definecolor{c-info}{HTML}{1C5D99}
+\definecolor{c-tip}{HTML}{2B8A3E}
+\definecolor{codebg}{HTML}{F4F4F2}
+
+% Headings: compact, paper-like
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}{-2.4ex \@plus -1ex \@minus -.2ex}{1.1ex \@plus .2ex}{\normalfont\large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-2ex \@plus -1ex \@minus -.2ex}{0.8ex \@plus .2ex}{\normalfont\normalsize\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1.6ex \@plus -1ex \@minus -.2ex}{0.6ex \@plus .2ex}{\normalfont\normalsize\itshape}}
+\makeatother
+
+% Code blocks
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  columns=fullflexible, keepspaces=true,
+  breaklines=true, breakatwhitespace=false,
+  backgroundcolor=\color{codebg}, frame=single, framerule=0pt, framesep=4pt,
+  xleftmargin=4pt, xrightmargin=4pt, aboveskip=6pt, belowskip=6pt,
+  upquote=true, showstringspaces=false,
+  literate={→}{{$\rightarrow$}}1 {–}{{--}}1
+}
+
+% Obsidian callouts: shaded box with a coloured label
+\newsavebox{\calloutbox}
+\newenvironment{callout}[2]{%
+  \def\calloutcolor{#1}%
+  \par\medskip\noindent
+  \begin{lrbox}{\calloutbox}%
+  \begin{minipage}{\dimexpr\linewidth-2\fboxsep\relax}\small
+  \setlength{\parskip}{3pt}%
+  {\bfseries\color{#1}#2.}\par
+}{%
+  \end{minipage}\end{lrbox}%
+  \colorbox{\calloutcolor!8}{\usebox{\calloutbox}}\par\medskip
+}
+
+% Let long URLs break (xurl is not part of BasicTeX)
+\AtBeginDocument{%
+  \def\UrlBreaks{\do\/\do-\do.\do=\do?\do&\do\_\do\%\do a\do b\do c\do d\do e\do f\do g\do h\do i\do j\do k\do l\do m\do n\do o\do p\do q\do r\do s\do t\do u\do v\do w\do x\do y\do z\do 0\do 1\do 2\do 3\do 4\do 5\do 6\do 7\do 8\do 9}%
+  \Urlmuskip=0mu plus 2mu\relax
+}
